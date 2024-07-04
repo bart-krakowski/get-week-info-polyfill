@@ -16,11 +16,7 @@
           weekInfoData[locale.split('-')[0]] ||
           weekInfoData['default']
 
-        return {
-          firstDay: match?.firstDay,
-          weekend: match?.weekend,
-          minimalDays: match?.minimalDays,
-        }
+        return match
       }
     })
   }
