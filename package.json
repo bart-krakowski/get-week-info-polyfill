@@ -1,11 +1,12 @@
 {
   "name": "@bart-krakowski/get-week-info-polyfill",
+  "types": "src/index.d.ts",
   "author": {
     "name": "Bart Krakowski",
     "email": "bartlomiej@krakowski.dev"
   },
   "main": "dist/index.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
