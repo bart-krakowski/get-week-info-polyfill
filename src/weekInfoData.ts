@@ -142,6 +142,7 @@ export const weekInfoData: Record<string, WeekInfo> = {
 	"af-ZA": { firstDay: 7, weekend: [6, 7], minimalDays: 1 },
 	"am-ET": { firstDay: 7, weekend: [6, 7], minimalDays: 1 },
 	"ar-AE": { firstDay: 6, weekend: [6, 7], minimalDays: 1 },
+	"ar-AF": { firstDay: 6, weekend: [4, 5], minimalDays: 1 },
 	"ar-BH": { firstDay: 6, weekend: [5, 6], minimalDays: 1 },
 	"ar-DZ": { firstDay: 6, weekend: [5, 6], minimalDays: 1 },
 	"ar-EG": { firstDay: 6, weekend: [5, 6], minimalDays: 1 },
