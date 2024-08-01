@@ -1,20 +1,35 @@
+import { WeekInfo } from './types'
+
+const normalizeLocale = (loc: string) => {
+  const [lang, region] = loc.split('-')
+  return region ? `${lang.toLowerCase()}-${region.toUpperCase()}` : lang.toLowerCase()
+}
+
 ;(function () {
-  // Chrome & Safari
   if ('weekInfo' in Intl.Locale.prototype && typeof Intl.Locale.prototype.getWeekInfo !== 'function') {
     Intl.Locale.prototype.getWeekInfo = function () {
       return this.weekInfo
     }
   }
-  // Firefox
+
   if (typeof Intl.Locale.prototype.getWeekInfo !== 'function') {
     import('./weekInfoData').then(({ weekInfoData }) => {
       Intl.Locale.prototype.getWeekInfo = function () {
-        const locale = this.toString().toLowerCase()
+        const locale = this.toString()
+        const normalizedLocale = normalizeLocale(locale)
 
-        const match =
-          weekInfoData[locale] ||
-          weekInfoData[locale.split('-')[0]] ||
-          weekInfoData['default']
+        let match: WeekInfo | undefined = weekInfoData[normalizedLocale]
+
+        if (!match) {
+          const mainLanguage = normalizedLocale.split('-')[0]
+          match = weekInfoData[mainLanguage]
+        }
+
+        if (!match) {
+          match = Object.entries(weekInfoData).find(([key]) => 
+            normalizeLocale(key) === normalizedLocale
+          )?.[1]
+        }
 
         return match
       }
