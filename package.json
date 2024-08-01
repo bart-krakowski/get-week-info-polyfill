@@ -6,7 +6,7 @@
     "email": "bartlomiej@krakowski.dev"
   },
   "main": "dist/index.js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "scripts": {
     "dev": "vite",
